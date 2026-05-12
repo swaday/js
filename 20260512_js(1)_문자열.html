@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문자열</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    // js에서 추천하는 문자열 작성 방법은 ``(백틱)입니다.
+    // 웹에서는 거의 문자열 처리가 되므로 매우 중요하다.
+
+    var s = `This is Test Message`;
+    var r = s.charAt(1); // 가져오고 싶은 문자의 위치
+    console.log(`r:`, r);
+    var r = s.endsWith(`Message`); // 어떤 문자열로 끝나는지 확인(대소문자 확실히 구분)
+    console.log(`r:`, r);
+    var r = s.includes(`is`); // 포함 여부 확인
+    console.log(`r:`, r);
+    var r = s.indexOf(`is`); // 포함된 문자열의 위치 확인, index는 0부터 시작한다.
+    console.log(`r:`, r);
+    var r = s.startsWith(`This`); // 어떤 문자열로 시작하는지 확인(대소문자 확실히 구분)
+    console.log(`r:`, r);
+    // var r = s.lastIndexOf(`is`); // 포함된 문자열의 마지막 위치 확인, index는 0부터 시작한다.
+    var r = s.repeat(3);
+    console.log(`r:`, r);
+    var r = s.split(` `); // 띄어쓰기 기준으로 문자열을 나눠줘
+    console.log(`r:`, r);
+    var arr = [`This`, `is`, `Test`, `Message`]; // split 구문은 배열문과 같은 형태로 보여지게 된다.
+    var r = s.replace(`Test`, `JAVA script`);
+    console.log(`r:`, r);
+    var r = s.replaceAll(`is`, `JAVA script`);
+    console.log(`r:`, r);
+    var r = s.startsWith(`This`);
+    console.log(`r:`, r);
+    var r = s.substring(3, 6); // 문자열 내에서 x index부터 y index까지 문자열 잘라서 가져오기
+    console.log(`r:`, r);
+    var r = s.slice(3, 6); // substring과 slice는 같은 기능을 수행한다.
+    console.log(`r:`, r);
+
+    // Message라는 문자열만 가지고 오고 싶을 때
+    var s = `This is Test Message`;
+    var r = [`This`, `is`, `Test`, `Message`]
+    s.split(` `); // 띄어쓰기 기준으로 문자열을 4개로 나눈 다음에
+    console.log(r[3]); // 마지막에 있는 것 0, 1, 2, 3을 가져온다. -> substring을 사용하면 일일이 순번을 세야한다.(불편)
+
+    // Message라는 문자열만 가지고 오고 싶을 때
+    var r = s.substring(13); // 마지막 순번은 생략이 가능하다.
+    console.log(r);
+
+    // Message라는 문자열만 가지고 오고 싶을 때
+    var r = s.slice(-7); // 마지막 순번은 생략이 가능하다. slice는 거꾸로 세는 것이 가능하나 substring은 불가능하다.
+    console.log(r);
+
+    // Message라는 문자열만 가지고 오고 싶을 때
+    var s = `This is Test Message`;
+    var r = [`This`, `is`, `Test`, `Message`]
+    s.split(` `);
+    console.log(r[ r.length - 1 ]);
+
+    var r = s.toLowerCase(); // 소문자로 바꿔주세요.(잦은 사용)
+    console.log(`r:`,r);
+
+    var r = s.toUpperCase(); // 대문자로 바꿔주세요.(잦은 사용)
+    console.log(`r:`,r);
+
+    var s = `           A B C D             `;
+    r = s.trim(); // 양측 공백 제거(잦은 사용)
+    console.log(`r:`,r);
+    r = s.trimStart(); // 앞쪽 공백 제거 - 드래그를 해보면 뒤쪽 공백은 살아있다는 것을 알 수 있다.(잦은 사용)
+    console.log(`r:`,r);
+    r = s.trimEnd(); // 뒤쪽 공백 제거(잦은 사용)
+    console.log(`r:`,r);
+</script>

@@ -110,7 +110,7 @@
 
     // 6. a를 전부 z로 변경하기
     var message = `a b 1 2 3 b a`
-    var r = message.replace(/a/g, `z`);
+    var r = message.replace(`a`, `z`);
     console.log(`Answer:`, r);
 
     // 7. 띄어쓰기 전부 제거된 "ab123ba" 문자열로 만들기
@@ -124,4 +124,13 @@
     // var g = message.slice(10);
     // var E = message.slice(12);
     console.log(`Answer:`, r[0] + r[1] + r[2] + r[3] + r[4] + r[5] + r[6]);
+
+    // 더 쉬운 방법(for - if문 활용)
+    var r = ` `;
+    for (var i = 0; i < message.length; i++){
+        if (i % 2 == 0) {
+            r += message[i];
+        }
+    }
+    console.log(`Answer:`, r);
 </script>

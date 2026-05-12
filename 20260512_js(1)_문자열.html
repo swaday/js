@@ -74,4 +74,54 @@
     console.log(`r:`,r);
     r = s.trimEnd(); // 뒤쪽 공백 제거(잦은 사용)
     console.log(`r:`,r);
+
+    // 1. `apple pen` 문자열 만들기
+    var a = `apple`;
+    var b = `pen`;
+    var r = a + ` ` + b;
+    console.log(`Answer:`, r);
+
+    // 2. `APPLE pen` 문자열 만들기
+    var a = `apple`;
+    var b = `pen`;
+    var r = a.toUpperCase() + ` ` + b;
+    console.log(`Answer:`, r);
+
+    // 3. `Apple Pen` 문자열 만들기
+    var a = `apple`;
+    var b = `pen`;
+    var r = a[0].toUpperCase() + a.slice(1) + ` ` + b[0].toUpperCase() + b.slice(1);
+    console.log(`Answer:`, r);
+
+    // 4. "Javascript Practice" 문자열 만들기
+    var message = `Javascript Code Practice`
+    var r = message.slice(0, 10);
+    var i = message.slice(16);
+    console.log(`Answer:`, r + ` ` + i);
+
+    var message = `Javascript Code Practice`
+    var r = message.split(` `);
+    console.log(`Answer:`, r[0] + ` ` + r[2]);
+
+    // 5. "Code" 문자열만 가져오기
+    var message = `Javascript Code Practice`
+    var r = message.split(` `);
+    console.log(`Answer:`, r[1]);
+
+    // 6. a를 전부 z로 변경하기
+    var message = `a b 1 2 3 b a`
+    var r = message.replace(/a/g, `z`);
+    console.log(`Answer:`, r);
+
+    // 7. 띄어쓰기 전부 제거된 "ab123ba" 문자열로 만들기
+    var message = `a b 1 2 3 b a`
+    var r = message.split(` `);
+    // var m = message.slice(0);
+    // var e = message.slice(2);
+    // var s = message.slice(4);
+    // var S = message.slice(6);
+    // var a = message.slice(8);
+    // var g = message.slice(10);
+    // var E = message.slice(12);
+    console.log(`Answer:`, r[0] + r[1] + r[2] + r[3] + r[4] + r[5] + r[6]);
 </script>

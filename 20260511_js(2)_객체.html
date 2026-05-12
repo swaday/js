@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>객체</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+  // 객체 == object
+  // key: value = 속성 : 값
+  var 게시글1번 = {
+    번호 : 1,
+    작성자 : '나',
+    비밀번호 : 1234
+  };
+  var 게시글2번 = {
+    번호 : 2,
+    작성자 : '너',
+    비밀번호 : 1212
+  };
+  console.log(게시글1번);
+  console.log(게시글2번);
+
+  var writer = 게시글1번. 작성자;
+  console.log("작성자:", writer);
+  // []를 사용해서 가져오기(꼭 문자열로 묶기!
+  var writer = 게시글1번['작성자'];
+  console.log("작성자:",writer);
+
+  // 객체가 가지는 속성의 value를 변경하기
+  게시글1번.작성자 = '나였다.'
+  // 객체가 가지는 속성을 추가하기
+  // 기존에 속성이 있으면 변경되고 없으면 추가된다.
+  게시글1번.작성날짜 = '2026-05-11'
+  console.log(게시글1번);
+
+
+</script>

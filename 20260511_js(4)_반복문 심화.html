@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>반복문 심화</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    var arr = [10, 20, 30, 40];
+    var len = arr.length;
+    for(let i = 0; i < len; i++){
+        console.log(arr[i]);
+    }
+    // for - in
+    for(let i in arr){
+        console.log(i); // arr의 index가 순서대로 출력
+        console.log(arr[i]);
+
+    }
+
+    // for - of
+    for(let i of arr){
+        console.log(i); // arr의 실제 값이 순서대로 출력
+    }
+
+    console.log("======================");
+
+    var person = {
+        name: "박소하",
+        age: 35,
+        tel: "010-1234-5678"
+    }
+    for(let i in person){
+        console.log(i); // person의 key가 순서대로 출력
+    }
+
+    // for - of는 불가능!
+    person.age
+    person['age']
+    for(let i in person){
+        console.log(i); // person의 key가 순회
+        console.log(person[i]); // person에서 i(key)에 해당하는 valye를 가져옴
+    }
+
+
+    // for(let i of Object.keys(person)){
+    //     console.log(i); // person의 key가 순서대로 출력
+    // }
+    // for(let i of Object.values(person)){
+    //     console.log(i); // person의 value가 순서대로 출력
+    // }
+    // for(let i of Object.entries(person)){
+    //     console.log(i); // person의 [key, value] 쌍이 순서대로 출력
+    // }
+
+
+
+
+</script>

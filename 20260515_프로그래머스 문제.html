@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>프로그래머스 문제</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    // console.log(`>>>>>>>> 코딩테스트 1 : 아이스 아메리카노`);
+    //     function solution(money) {
+    //         let count = 0;
+    //         while (money > 0) {
+    //             count += 1
+    //             money -= 5500;
+    //         }
+    //         console.log(count, money);
+    //     //     let arr = [];
+    //     //     if(count === 0{
+    //     //         return [count, money];
+    //     //     }else{
+    //     //         return [count -1, money + 5500];
+    //     //     }
+    //     // }
+    // // var result = solution(5500);
+    // // console.log(result);
+    // // var result = solution(15000);
+    // // console.log(result);
+
+
+    console.log(`>>>>>>>> 코딩테스트 1 : 특정 문자 제거하기`);
+    function solution(my_string, letter) {
+        let answer = ``;
+        for (let ans of my_string) {
+            if (ans !== letter) {
+                answer += ans;
+            }
+        }
+        return answer;
+    }
+    console.log(solution('abcdef', 'f'));
+    console.log(solution('BDBdbe', 'B'));
+
+
+    console.log(`>>>>>>>> 코딩테스트 1(다른 풀이) : 특정 문자 제거하기`);
+    function solution(my_string, letter) {
+    if(my_string.length === 0 || letter.length > 100){
+        console.log(`my_string의 길이를 확인하세요.`)
+    }
+    if(letter.length !== 1){
+        console.log(`letter의 길이는 1이어야 합니다.`)
+    }
+    let answer = my_string.replace(letter, '');
+    return answer;
+}
+    console.log(solution('abcdef', 'f'));
+    console.log(solution('BDBdbe', 'B'));
+
+
+    console.log(`>>>>>>>> 코딩테스트 2 : 머쓱이보다 키 큰 사람`);
+    function solution2(array, height) {
+        var answer = 0;
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] > height) {
+                answer = answer + 1;
+            }
+        }
+        return answer;
+    }
+    console.log(solution2([149, 180, 192, 170], 167));
+    console.log(solution2([180, 120, 140], 190));
+
+
+    console.log(`>>>>>>>> 코딩테스트 3 : 배열 뒤집기`);
+    function solution3(num_list){
+        let answer = [];
+        for ( let i = num_list.length - 1; i >= 0; i-- ) {
+            answer.push(num_list[i]);
+        }
+        return answer;
+    }
+    console.log(solution3([1, 2, 3, 4, 5]));
+    console.log(solution3([1, 1, 1, 1, 1, 2]));
+
+
+    console.log(`>>>>>>>> 코딩테스트 4 : 짝수 홀수 개수`);
+    function solution4(num_list){
+        let even = [];
+        let odd = [];
+        let answer = [];
+        for ( let i = 0; i < num_list.length; i++ ) {
+            if(num_list[i] % 2 === 0){
+                even.push(num_list[i]);
+            }else{
+                odd.push(num_list[i]);
+            }
+        }
+        answer.push(even.length, odd.length);
+        console.log(answer);
+    }
+    solution4([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+    console.log(`>>>>>>>> 코딩테스트 5 : 뒤집힌 문자열`);
+    console.log(`>>>>>>>> 코딩테스트 6 : 짝수의 합`);
+    console.log(`>>>>>>>> 코딩테스트 7 : 배열 자르기`);
+    console.log(`>>>>>>>> 코딩테스트 8 : 배열 원소의 길이`);
+
+
+
+
+</script>

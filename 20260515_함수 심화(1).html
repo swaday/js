@@ -84,7 +84,27 @@
     // p[age]; // age 변수를 사용하는 것(에러)
     p[`age`]; p.age; // key는 무조건 문자열이다.
 
+    ////////////////////////////////////////////////
 
+    function computer(){
+        this.serial = ``;
+        this.price = 0;
+    }
+    let com1 = new computer(); // new = 클래스로써 동작한다.
+    console.log(com1);
+
+    ////////////////////////////////////////////////
+
+    let arr = [100, 200, 300]
+    console.log(arr);
+    let v0 = arr[`0`];
+    console.log(v0);
+    console.log(arr.length);
+    console.log(arr[`length`]); // 대괄호 안에서는 거의 대부분 가능.
+    arr.push(400);
+    console.log(arr);
+    arr[10] = 1000; // 원래 다른 프로그램에서는 에러사항(존재하는 index 번호를 초과할 수 없다)
+    console.log(arr);
 
 
 

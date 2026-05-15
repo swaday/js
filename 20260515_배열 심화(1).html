@@ -8,3 +8,113 @@
 
 </body>
 </html>
+
+<script>
+    var flag = true; // 모두 짝수로 생각하겠다고 가정.
+    var arr = [12, 54, 56, 6, 20, 2];
+    for(var i = 0; i < arr.length; i++){
+        let data = arr[i];
+        if(data % 2 !== 0){
+            flag = false;
+            break;
+        }
+    }
+    console.log(flag);
+
+    /////////////////////////////////////// every 사용
+    function func1(number){
+        if(number % 2 === 0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    var arr = [12, 54, 56, 6, 20, 2];
+    var result = arr.every(func1);
+    console.log(result);
+
+
+    /////////////////////////////////////// every 사용 + 생략
+    let func2 = number => number % 2 === 0;
+
+    var arr = [12, 54, 56, 6, 20, 2];
+    var result = arr.every(func1);
+    console.log(result);
+
+
+    /////////////////////////////////////// every 사용 + 생략 + 더 간단
+    var arr = [12, 54, 56, 6, 20, 2];
+    var result = arr.every(number => number % 2 === 0);
+    console.log(result);
+
+
+    var arr = [12, 54, 56, 6, 20, 2];
+    var result = [];
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] % 3 === 0){
+            result.push(arr[i]);
+        }
+    }
+    console.log(result);
+
+
+    /////////////////////////////////////// filter 사용 -> return true가 되는 값만 가져온다.
+    var arr = [12, 54, 56, 6, 20, 2];
+    function func3(number){
+        if(number % 3 === 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    var result = arr.filter(func3);
+    console.log(result);
+
+
+    /////////////////////////////////////// foreach
+    var arr = [12, 54, 56, 6, 20, 2];
+    function func4(number){
+        console.log(number);
+    }
+    arr.forEach(func4);
+    arr.forEach(number => console.log(number));
+
+    /////////////////////////////////////// find
+    var arr = [12, 54, 56, 6, 20, 2, 210];
+    var result = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] % 5 === 0){
+            result = arr[i];
+            break; // 값을 배열 내에서 찾았을 경우 끝내고 싶을 때
+        }
+    }
+    console.log(result);
+
+    ////////////////////////////////////
+    console.log(`find 함수`);
+    var arr = [12, 54, 56, 6, 20, 2, 210];
+    var result = arr.find(number => number % 5 === 0);
+    console.log(result);
+
+
+    /////////////////////////////////////// map
+    var arr = [12, 54, 56, 6, 20, 2, 210];
+    var result = [];
+    for(let i = 0; i < arr.length; i++){
+        result.push(arr[i] * 10);
+    }
+    console.log(result);
+
+    //map은 기존의 배열에 있는 요소를 다른 배열로 교체하고 싶을 때 사용한다.
+
+    var arr = [12, 54, 56, 6, 20, 2, 210];
+    function func5(number){
+        return number * 10;
+    }
+    var result = arr.map(func5);
+    console.log(result);
+
+
+
+</script>

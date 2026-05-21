@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>텍스트 조작</title>
+</head>
+<body>
+    <section>
+        <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <ul>
+            <li>LI1</li>
+            <li>LI2</li>
+        </ul>
+    </section>
+
+    <article>
+        <div>ARTICLE내 DIV</div>
+    </article>
+</body>
+</html>
+
+<script>
+    let section = document.querySelector("section");
+
+    let st = section.textContent; // 줄바꿈 띄어쓰기를 그대로 가져온다.
+    let sit = section.innerText; // 공백을 모두 제거하고 줄바꿈은 유지한채 가져온다.
+    let sih = section.innerHTML; // textcontent랑 유사하게 가져오나, section내 글자를 모두 가져온다.(tag까지 포함)
+    console.log(`stc: ${st}`)
+    console.log(`sit: ${sit}`)
+    console.log(`sth: ${sih}`)
+
+////////////////////////////////////////////////////////////
+
+    let article = document.querySelector("article");
+    // article.textContent = `        <b>ARTICLE</b>`; // 태그까지 입력
+    // article.innerText = `           ARTICLE`; // 태그까지 입력
+    article.innerHTML = `      <b>ARTICLE</b>    ` // 태그로써 작용
+
+
+
+
+</script>

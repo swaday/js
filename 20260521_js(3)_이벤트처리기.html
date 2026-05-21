@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트처리기</title>
+</head>
+<style>
+    body{
+        display: flex;
+        /*flex-direction: column;*/
+        align-items: center;
+    }
+    section{
+        width: 300px;
+        height: 300px;
+        background-color: aqua;
+    }
+    article{
+        width: 300px;
+        height: 300px;
+        background-color: #f5ff9f;
+    }
+    div{
+        width: 300px;
+        height: 300px;
+        background-color: #adf3b1;
+    }
+    main{
+        width: 300px;
+        height: 300px;
+        background-color: #ffb8b8;
+    }
+</style>
+
+<body>
+    <section onclick="alert('section clicked');"></section>
+    <!--       태그에 바로 작성하는 방법은 잘 사용하지 않는다.-->
+    <article></article>
+    <div></div>
+    <main></main>
+
+
+
+
+</body>
+</html>
+<script>
+    window.alert('hello'); // window는 생략가능
+    let section = document.querySelector('section');
+
+    //////////////////////////////////////////////
+
+    function article_clicked(){
+        alert('article clicked');
+    }
+    let article = document.querySelector('article');
+    article.onclick = article_clicked; // 함수의 이름을 작성해야한다. 함수만 알려주면 된다는 뜻.
+
+    //////////////////////////////////////////////
+
+    function div_clicked(){
+        alert('div clicked');
+    }
+
+    let div = document.querySelector('div');
+    div.addEventListener('click', div_clicked); // click 이벤트가 발생하면 div_clicked 함수를 실행하겠다는 뜻.
+//     addEventListener는 잘 사용하지 않는다.
+
+
+    /////////////////////////////////////////////
+
+    // let main_clicked = () => {alert('main clicked');}
+
+    let main = document.querySelector('main');
+    main.onclick = () => {
+        alert('main clicked11111111111111111');
+    };
+
+    // let main = document.querySelector('main');
+    // main.onclick = () => {
+    //     alert('main clicked2222222222222222');
+    // };
+    //
+    // let main = document.querySelector('main');
+    // main.onclick = () => {
+    //     alert('main clicked3333333333333333');
+    // };
+
+    main.addEventListener('click', () => {alert(`main clicked-화살표 함수`)});
+    main.addEventListener('click', () => {alert(`main clicked-화살표 함수222`)});
+//     onclick을 하면 한번만 팝업이 뜨나, addEvent로 하면 입력한만큼 팝업이 뜬다.
+//     onclick + 화살표 함수 형태만 외우면 된다!
+
+
+</script>

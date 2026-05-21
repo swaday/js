@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>요소복습</title>
+</head>
+<body>
+    <ul>
+        <li>1번</li>
+        <li>2번</li>
+        <li class="selected">3번</li>
+        <li>4번</li>
+        <li class="selected">5번</li>
+        <li class="selected">6번</li>
+        <li class="selected">7번</li>
+    </ul>
+
+    <input type="text">
+
+</body>
+</html>
+
+
+<script>
+    // get 형식은 변수에 넣으세요.
+    let ulElem = document.querySelector('ul');
+    ulElem.style.backgroundColor = `#b5b5b5`;
+    let liElem = document.querySelectorAll('li');
+    liElem.item(2).style.color = `#f5ff9f`;
+    liElem[1].style.color = `#9fffe9`;
+    liElem[2].style.backgroundColor = `#232323`;
+
+    let selectedElem = document.querySelectorAll(`.selected`);
+
+
+    let i = 0;
+    while(i < 2){
+    selectedElem[i].style.fontSize = `20px`;
+    i++;}
+
+    for(let i = 0; i < selectedElem.length; i++){
+        selectedElem[i].style.color = `#9a71ec`;
+    }
+
+    ////////////////////////////////////////////////
+
+    let inputElem = document.querySelector('input');
+    inputElem.setAttribute(`readonly`, ``); // readonly 속성을 넣는 것, readonly는 뒤에 빈문자열
+    inputElem.setAttribute(`value`, `값을 입력하세요.`); // input box에 값을 입력하는 것
+
+    ///////////////////////////////////////////////
+
+    let newinputElem = document.createElement("input");
+    // 문서의 특정 위치에 배치해야한다. -> 기준점이 필요.
+    // 어떤 요소의 자식으로 넣을 수 있다.
+    document.body.appendChild(newinputElem);
+
+    ///////////////////////////////////////////////
+
+    liElem[2].remove(); //-> 아까 가져왔던 li 중 2번째 index 요소를 문서에서 제거한다.
+
+    ///////////////////////////////////////////////
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css 조작</title>
+</head>
+<style>
+    #s1{
+        width: 200px;
+        height: 200px;
+        background-color: #c1c1c1;
+    }
+    section{
+        width: 111px;
+        color: red;
+    }
+</style>
+<body>
+    <section id="s1">
+        SECTION 1
+    </section>
+</body>
+</html>
+
+<script>
+
+    // 변수, 함수, 클래스 이름 규칙
+    // lower Camel Case : 소문자로 시작, 단어 사이는 대문자로
+    // my HouseIsBest
+    // upper Camel Case : 대문자로 시작, 단어 사이도 대문자로
+    // MyHouseIsBest
+    // snake case, under score : 소문자로 시작, 단어사이는 _로
+    // my_House_Is_Best
+
+    // 변수 : lower Camel Case
+    // 클래스 : upper Camel Case
+    // : snake case
+
+    let s1 = document.querySelector('#s1');
+    s1.style.backgroundColor = '#f5ff9f';
+    s1.style.fontSize = '24px';
+    // let w = s1.style.width;
+    // console.log(w);
+
+    let w = getComputedStyle(s1).width;
+    let r = w.replaceAll('px', '');
+    let rNum = +r;
+    console.log(rNum + 100);
+    s1.style.width = `${rNum + 100}px`;
+    // s1.style.height = '300px';
+
+
+</script>

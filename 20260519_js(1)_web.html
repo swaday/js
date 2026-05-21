@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web</title>
+</head>
+<style>
+    #s1{
+        background-color: aqua;
+    }
+</style>
+<body>
+    <form action="#s1" method="post">
+<!--        # : hash 값 / 페이지 내의 어떤 부분으로 이동.-->
+<!--        post 방식은 작성된 주요 정보가 url에 보이지 않도록 한다.-->
+<!--        get method는 url에 주요 정보가 노출된다.-->
+<!--        method를 적지않으면 get이 default, action을 적지않으면 현재 페이지로 이동한다.-->
+        ID : <input type="text"><br>
+        PW : <input type="password"><br>
+        <button type="button"> 보내세요. </button>
+<!--        button은 form 안에 있으면 form이 제출이 된다. 기본 type이 submit이기 때문.-->
+    </form>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <section id="s1">
+        HELLO
+    </section>
+
+</body>
+</html>
+
+<script>
+    console.log(window.location);
+    console.log(window.location.href);
+
+    // console.log(window)
+    // var result = window.confirm(`맞아요?`);
+    // window.alert(`당신이 누른 버튼은: ${result}`);
+
+    // var result = window.prompt(`데이터를 입력해보세요.`);
+    // console.log(result);
+    // window.alert(result + 10);
+
+    // console.error(`에러 메시지 출력`);
+    // console.warn(`경고 메시지 출력`);
+    // console.info(`정보 메시지 출력`);
+    // console.log(`로그 메시지 출력`);
+
+
+
+
+
+</script>

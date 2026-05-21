@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    0 <input type="text"> <br>
+    1 <input type="text"> <br>
+    2 <input type="text"> <br>
+    3 <input type="text"> <br>
+    4 <input type="text"> <br>
+    5 <input type="text"> <br>
+    6 <input type="text" value=`Test`> <br>
+    7 <input type="text">
+
+</body>
+</html>
+
+
+<script>
+    let inputElem = document.createElement('input');
+    document.body.appendChild(inputElem);
+    // document.createAttribute('type'); -> 비추천 방식
+    inputElem.type = 'password'; // -> 추천 방식
+
+    let ul = document.createElement(`ul`);
+    document.body.appendChild(ul);
+
+    for(let i = 0; i < 5; i++){
+        let li = document.createElement(`li`);
+        li.textContent = `Item ${i + 1}`;
+        ul.appendChild(li);
+    }
+
+    // ul 태그를 제거하겠다.
+    ul.remove();
+
+    ///////////////////////////////////////////////////////////////////////////////
+
+    let inputs = document.querySelectorAll(`input`);
+    inputs[0].setAttribute('value', 'Hello.'); // 없는 속성을 추가
+    inputs[1].value = `World!`;
+    inputs[2].setAttribute('disabled', `true`); // 속성 이름만 넣고 싶을 때
+    inputs[3].setAttribute(`type`, `number`); // 기존 속성을 변경
+    inputs[4].toggleAttribute(`readonly`); // readonly 속성이 없으면 생성하고, 있으면 제거하는 toggle
+    inputs[5].toggleAttribute(`readonly`, true); // readonly가 있든없든간에 있게 하라(true) 없게 하라(false)
+    inputs[6].removeAttribute(`readonly`); // readonly 속성을 제거
+    let v = inputs[6].value;
+    console.log(v); // "테스트!"
+
+
+
+</script>

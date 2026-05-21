@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>node</title>
+</head>
+<body>
+    <div>DIV입니다</div>
+    <span>SPAN입니다</span>
+    <ul>
+        <li>LI1입니다</li>
+        <li>LI2입니다</li>
+    </ul>
+
+
+    <input type="text" class="text_input">
+    <input type="password">
+    <input type="number" id="number_input">
+    <input type="text" class="text_input">
+
+
+
+</body>
+</html>
+
+<script>
+    let body = window.document.body;
+    let firstElem = body.firstElementChild;
+    let nextElem = firstElem.nextElementSibling;
+    console.log(body);
+    console.log(firstElem);
+    console.log(nextElem);
+
+
+    /////////////////////////////////////////// vanilla js
+
+    let ul = document.getElementsByTagName(`ul`);
+    console.log(ul);
+    let li = document.getElementsByTagName(`li`);
+    console.log(li);
+
+    //////////////////////////////////////////////////////
+
+    let inputs = document.getElementsByTagName(`input`);
+    console.log(inputs);
+    console.log(inputs[2]);
+
+    let numberInput = document.getElementById(`number_input`);
+    console.log(numberInput);
+
+    let textInputs = document.getElementsByClassName(`text_input`);
+    console.log(textInputs);
+
+
+    ////////////////////////////////////// querySelector
+
+    document.querySelector(`#number_input`);
+    let i = document.querySelector(`input`);
+    console.log(i);
+
+    let ii = document.querySelectorAll(`input`);
+    console.log(ii);
+
+</script>

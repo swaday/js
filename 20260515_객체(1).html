@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>객체</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    // let walk = function(){
+    //     console.log(`walking`);
+    // }
+    let person = {
+        name: `soha`,
+        age : 35,
+        // mathod: 어떤 객체가 가진 기능(function)
+        walk : function(){
+            console.log(`walking`);
+        }
+    }
+    console.log(person.name);
+    person.walk(); // method를 출력하는 방식
+
+
+    // 현재 날짜와 시간을 생성하기
+    let date = new Date();
+    let year = date.getFullYear(); // date라는 객체 안에 함수가 들어있다 -> method
+    let month = date.getMonth();
+    console.log(date);
+    console.log(year);
+    console.log(month);
+
+
+
+
+</script>

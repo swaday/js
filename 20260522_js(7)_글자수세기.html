@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>글자수세기</title>
+</head>
+<style>
+    .calc_char_length{
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: 24px;
+    }
+    .calc_char_length > label {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    .calc_char_length #char_area{
+        height: 200px;
+        resize: none;
+        font-size: 20px;
+        border: none;
+        outline: none;
+    }
+    .calc_char_length .blank{
+        display: inline-block;
+        font-size: 18px;
+        margin-right: 12px;
+    }
+    .calc_char_length .blank > b{
+        display: block;
+        color: darkblue;
+    }
+</style>
+<body>
+<section class="calc_char_length">
+    <label for="char_area">글자수세기</label>
+    <textarea id="char_area"></textarea>
+    <div>
+        <div class="blank">
+            <span>공백포함</span>
+            <b>111</b>
+        </div>
+        <div class="blank">
+            <span>공백제외</span>
+            <b>111</b>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+<script>
+    let textarea = document.querySelector('#char_area');
+    let blank_count = document.querySelectorAll('.blank b');
+
+    textarea.oninput = () => {
+        let text_value = textarea.value;
+        blank_count.forEach(blank => {
+            blank.innerText = text_value.length;
+        })
+    }
+
+    textarea.oninput = () => {
+        let text_value = textarea.value;
+        let notblanktext = text_value.replaceAll(` `,``);
+        blank_count.forEach(blank => {
+            blank.innerText = notblanktext.length;
+        })
+    }
+
+</script>

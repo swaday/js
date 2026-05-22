@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 이벤트</title>
+</head>
+<style>
+    section{
+        width: 300px;
+        height: 300px;
+        background-color: #c1c1c1;
+    }
+
+</style>
+<body>
+    <section>
+
+    </section>
+</body>
+</html>
+
+<script>
+    let sec = document.querySelector('section');
+    sec.onmouseup = () => {
+        console.log('마우스 버튼을 떼었습니다.');
+    }
+    sec.onmousedown = () => {
+        console.log('마우스 버튼을 눌렀습니다.');
+    }
+    sec.onmouseenter = () => {
+        console.log('마우스가 영역에 들어왔습니다.');
+    }
+    sec.onmouseleave = () => {
+        console.log('마우스가 영역을 벗어났습니다.');
+    }
+    // sec.onmouseout = () => {
+    //     console.log('마우스가 영역 밖으로 나갔습니다.');
+    // }
+    sec.onmousemove = () => {
+        console.log('마우스가 영역 내부에서 움직이고 있습니다.');
+    }
+    sec.onmouseover = () => {
+        console.log('마우스가 영역 위로 올라갔습니다.');
+    }
+
+
+</script>

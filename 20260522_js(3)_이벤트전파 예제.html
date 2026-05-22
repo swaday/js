@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트전파 예제</title>
+</head>
+<style>
+    section{
+        width: 100%;
+        height: 600px;
+        background-color: #050505;
+        display: flex;
+        justify-content:center;
+        align-items: flex-end;
+    }
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: #f5ff9f;
+        text-align: center;
+        margin: 0 10px;
+        cursor: pointer;
+        flex-shrink: 0;
+        margin-bottom: 40px;
+    }
+    button{
+        width: 100px;
+        height: 50px;
+        background-color: #67dce7;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+    }
+</style>
+
+<body>
+    <section>
+        <div class="width-80">Width: 80%</div>
+        <div class="width-60">Width: 60%</div>
+        <div class="width-40">Width: 40%</div>
+        <button>RESET</button>
+    </section>
+</body>
+</html>
+
+<script>
+    let sec = document.querySelector('section');
+    let w80 = document.querySelector(`.width-80`);
+    w80.onclick = (event) => {
+        sec.style.width = '80%';
+        sec.style.transition = '1.0s';
+        w80.style.transition = '1.0s';
+        w80.style.transitionDelay = '1.0s';
+        sec.style.backgroundColor = '#d59393';
+        w80.style.backgroundColor = '#94ffae';
+    }
+
+    let w60 = document.querySelector(`.width-60`);
+    w60.onclick = (event) => {
+        sec.style.width = '60%';
+        sec.style.transition = '1.0s';
+        w60.style.transition = '1.0s';
+        sec.style.backgroundColor = '#d59393';
+        w60.style.backgroundColor = '#94e6ff';
+    }
+
+    let w40 = document.querySelector(`.width-40`);
+    w40.onclick = (event) => {
+        sec.style.width = '40%';
+        sec.style.transition = '1.0s';
+        w40.style.transition = '1.0s';
+        sec.style.backgroundColor = '#d59393';
+        w40.style.backgroundColor = '#b894ff';
+    }
+
+    let reset = document.querySelector('button');
+    reset.onclick = (event) => {
+        sec.style.width = '100%';
+        sec.style.backgroundColor = '#050505';
+        w80.style.backgroundColor = '#f5ff9f';
+        w60.style.backgroundColor = '#f5ff9f';
+        w40.style.backgroundColor = '#f5ff9f';
+        ;
+    }
+
+
+    // for문으로 한번에 만들기
+    // let section = document.querySelector('section');
+    // let divs = document.querySelectorAll('div');
+    // let widths = [80, 60, 40];
+    // for (let i = 0; i < divs.length; i++) {
+    //     let div = divs[i];
+    //     div.onclick = () => {
+    //         // section.style.width = (80 - i * 20) + '%';
+    //         section.style.width = widths[i] + '%';
+    //         div.style.backgroundColor = 'red';
+    //     }
+    // }
+
+
+    // class를 지정했을 때 사용할 수 있는 방법
+    // let section = document.querySelector('section');
+    // let divs = document.querySelectorAll('div');
+    // for (let i = 0; i < divs.length; i++) {
+    //     let div = divs[i];
+    //     div.onclick = () => {
+    //         // section.style.width = (80 - i * 20) + '%';
+    //         // section.style.width = widths[i] + '%';
+    //         let width_class = div.getAttribute(`class`);
+    //         let w = width_class.split(`-`);
+    //         section.style.width = w + '%';
+    //         div.style.backgroundColor = 'red';
+    //     }
+    // }
+</script>

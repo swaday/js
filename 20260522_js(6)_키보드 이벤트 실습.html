@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>키보드 이벤트 실습</title>
+</head>
+<style>
+    section{
+        display: inline-block;
+        width: 300px;
+        height: 300px;
+        background-color: lightgray;
+        border: 1px solid black;
+</style>
+<body>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+</body>
+</html>
+
+<script>
+// <!--    onkeydown은 글자가 눌렸을 때를 출력-->
+//     let textarea = document.querySelector('textarea');
+//     textarea.oninput = () => {
+//         let text = textarea.value;
+//         let count = text.length;
+//         console.log(`글자수: ${count}`);
+//     }
+
+
+// 문제. asdf 각 키를 눌렀을 때, 키에 맞는 색상을 자신이 정해서,
+// 각 section의 배경색을 변경하세요.
+// 예시) a를 누르면 첫번째 section의 색이 빨강이 됩니다.
+// 단, 어떤 키를 눌렀을 때, 해당 박스의 색만 변경되어야 하고,
+// 나머지 박스는 색이 초기화되어야 합니다.
+
+    let sections = document.querySelectorAll('section');
+    window.onkeydown = (event) => {
+        sections.forEach(section => {
+            section.style.backgroundColor = `lightgray`;
+        })
+        if(event.key === 'a'){
+            sections[0].style.backgroundColor = '#ff8b8b';
+        }else if(event.key === 's'){
+            sections[1].style.backgroundColor = '#f5ff9f';
+        }else if(event.key === 'd'){
+            sections[2].style.backgroundColor = '#a6ff98';
+        }else if(event.key === 'f'){
+            sections[3].style.backgroundColor = '#87f5ff';
+        }
+    }
+
+
+
+    ////////////////////// 객체로 지정해서 만들기
+// let sections = document.querySelectorAll('section');
+// let obj = [
+//     {
+//         originalBg: 'red',
+//         changeBg: '#f69c9c',
+//         key:'a'
+//     },
+//     {
+//         originalBg: 'red',
+//         changeBg: '#f69c9c',
+//         key:'a'
+//     },
+//     {
+//         originalBg: 'red',
+//         changeBg: '#f69c9c',
+//         key:'a'
+//     },
+//     {
+//         originalBg: 'red',
+//         changeBg: '#f69c9c',
+//         key:'a'
+//     },
+// ]
+//
+// window.onkeydown = (event) => {
+//     // 모든 section 의 색을 원래 색으로 변경한다. 무조건.
+//     for(let i = 0; i < sections.length; i++) {
+//         sections[i].style.backgroundColor = originalBgs[i];
+//     }
+//     // 눌린 key가 어떤 key인지 가져온다
+//     let key = event.key;
+//     for(let i = 0; i < sections.length; i++) {
+//         // 만약, 눌린 key가 asdf 중 하나라면?
+//         if(key === keys[i]){
+//             // 해당 section만 색을 변경한다.
+//             sections[i].style.backgroundColor = changeBgs[i];
+//         }
+//     }
+//
+
+
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 전파</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: #c1c1c1;
+    }
+    #inner{
+        width: 100px;
+        height: 100px;
+        background-color: #f5ff9f;
+    }
+
+</style>
+<body>
+    <div id="outer">
+        <span>OUTER</span>
+        <div id="inner">INNER</div>
+    </div>
+</body>
+</html>
+
+<script>
+    let outer = document.querySelector('#outer');
+    let inner = document.querySelector('#inner');
+
+    //////////// 아래처럼 가져와도 된다.
+    // let divs = document.querySelectorAll(`div`);
+    // let outer = divs[0];
+    // let inner = divs[1];
+    //
+    // outer.onclick = () => {
+    //     console.log('outer clicked');
+    //     console.log(`target:`, event.target); // target : 실제로 클릭된 요소
+    //     console.log(`currenttarget:`, event.currentTarget); // currenttarget : 현재 실행되고 있는 요소
+    //
+    // }
+    // inner.onclick = () => {
+    //     console.log('inner clicked');
+    //     console.log(`target:`, event.target);
+    //     console.log(`currenttarget:`, event.currentTarget);
+    // }
+
+
+    outer.addEventListener(`click`, (event) => {
+        console.log('outer clicked');
+        console.log(`target:`, event.target); // target : 실제로 클릭된 요소
+        console.log(`currenttarget:`, event.currentTarget); // currenttarget : 현재 실행되고 있는 요소
+    }, true); // true : capture phase, false : bubble phase
+
+    inner.addEventListener(`click`, (event) => {
+        console.log('inner clicked');
+        console.log(`target:`, event.target);
+        console.log(`currenttarget:`, event.currentTarget);
+    }, true);
+
+    // 기본적으로 웹은 자식을 클릭하면 부모로 이벤트가 퍼져나가는 버블링 방식을 사용.
+    // 하지만 위 인자를 true로 설정하면 캡처링 모드가 활성화되어 최상위 부모부터 실제 클릭한 자식 요소 방향으로 이벤트가 내려가며 발생
+    // 캡처링을 쓰는 목적 : 특수한 목적(이벤트 가로채기 - 특정 조건이 맞지 않으면 자식의 이벤트가 실행되지 않도록 차단하거나 로그를 남길 수 있다. / 컴포넌트 외부 클릭 감지 - 모달창이 떴을 때 모달창 바깥 화면 전체를 클릭하면 팝업이 닫히게 만드는 등의 전역적 UI 이벤트를 제어하고 싶을 때)
+    // stop propagation : 이벤트가 상위 요소로 전파되지 않도록 차단
+    // stop immediate propagation : 이벤트가 상위 요소로 전파되지 않도록 차단 + 동일한 이벤트에 등록된 다른 핸들러도 실행되지 않도록 차단
+
+
+
+</script>

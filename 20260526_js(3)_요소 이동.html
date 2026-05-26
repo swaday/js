@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>요소 이동</title>
+</head>
+<style>
+    div{
+        width: 300px;
+        height: 300px;
+        background-color: #c1c1c1;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+    <div></div>
+</body>
+</html>
+
+<script>
+    let div = document.querySelector(`div`);
+    let initialMousePositionX = 0;
+    let initialMousePositionY = 0;
+
+
+    function mouse_move(event){
+        offsetX = event.clientX - initialMousePositionX;
+        offsetY = event.clientY - initialMousePositionY;
+        // 이동한 거리만큼 translate로 이동시킨다.
+        div.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+    };
+
+
+    div.addEventListener(`mousedown`, event => {
+        initialMousePositionX = event.clientX;
+        initialMousePositionY = event.clientY; // 마우스 클릭한 상대적 위치를 받아온다.
+        div.addEventListener(`mousemove`, mouse_move);
+    });
+    // 이 문서 내의 어디서든 마우스를 떼면 행위 취소
+    window.addEventListener(`mouseup`, () => {
+        // div.onmousedown = null; -> on으로 넣었을 경우에는 null을 넣으면 취소행위
+        div.removeEventListener(`mousemove`, mouse_move);
+    })
+
+</script>

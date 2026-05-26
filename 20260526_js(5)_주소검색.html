@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>주소검색</title>
+  <script src="//t1.kakaocdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+</head>
+<body>
+<div class="post_search">
+    <div>
+      <label><input type="text" placeholder="우편번호" readonly></label>
+      <button type="button">우편번호 검색</button>
+    </div>
+    <label><input type="text" placeholder="주소" readonly></label>
+    <label><input type="text" placeholder="상세주소"></label>
+</div>
+
+
+</body>
+</html>
+<script>
+  // new kakao.Postcode({
+  //   oncomplete: function(data) {
+  //     // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+  //     // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+  //   }
+  // }).open();
+
+
+  const[postcodeInput, addrInput, dAddrInput] = document.querySelectorAll(`.post_search input`);
+  const postSearchButton = document.querySelector(`.post_search button`);
+  // 우편번호 검색 혹은 우편번호 입력 창 클릭 시 검색창 띄움
+  postcodeInput.onclick = open_post_search_window;
+  postSearchButton.onclick =  open_post_search_window;
+
+  function open_post_search_window(){
+    new kakao.Postcode({
+      oncomplete: function(data){
+        const jibunAddr = data[`jibunAddress`];
+        const roadAddr = data[`roadAddress`];
+        addrInput.value = `${roadAddr} ${jibunAddr}`;
+      }
+    }).open();
+}
+</script>

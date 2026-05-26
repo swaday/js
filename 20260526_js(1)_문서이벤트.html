@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서이벤트</title>
+    <script src="20260526_js(1)_문서이벤트.js" defer></script>
+    <script type="module" src="20260526_js(1)_문서이벤트_1.js" defer></script>
+    <script type="module" src="20260526_js(1)_문서이벤트_2.js" defer></script>
+<!--    sync : 동기, async : 비동기 -> script 태그에 async를 넣으면 문서 로딩 중 script 태그를 만났을 때, 일단 js 파일을 전부 다운로드 시작한다.(시작만) 그리고 DOM트리를 전부 생성 완료하면 실행-->
+<!--    단순 script 태그를 작성하면 문서 로딩 중 script 태그를 만나면 다운로드가 완료되면 즉시 실행된다.-->
+<!--    so, 오래걸리는 작업은 async를 입력해주는 것이 유리하다. -->
+<!--    script 태그에 defer를 넣으면 async와 같은 동작이지만 dom트리를 전부 생성완료하면 실행된다. (다운로드가 완료되어도 즉시 실행이 되지 않음) -->
+
+</head>
+<style>
+    section, img{
+        background-color: #575757;
+        width: 300px;
+        height: 300px;
+    }
+</style>
+<body>
+    <section>박스</section>
+    <img src="https://images.unsplash.com/photo-1767438417741-0dc1cbf43e2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8fHw%3D" alt="">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+</body>
+</html>

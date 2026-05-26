@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ON OFF</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        display: inline-block;
+        cursor: pointer;
+        padding: 14px;
+        font-size: 24px;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        background-color: black;
+        color: white;
+        &:hover{
+             background-color: #de6262;
+         }
+        &.active{
+            background-color: #de6262;
+            text-decoration: underline;
+         }
+    }
+
+    /*li[active="true"]{*/
+    /*    background-color: #de6262;*/
+    /*}*/
+
+    .d1{
+        display: none;
+        background-color: #9ea3ff;
+        height: 200px;
+    }
+    .d2{
+        display: none;
+        background-color: #63f2ff;
+        height: 200px;
+    }
+    .d3{
+        display: none;
+        background-color: #8fffce;
+        height: 200px;
+    }
+
+</style>
+<body>
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+    </ul>
+
+
+    <section>
+        <div class="d1"></div>
+        <div class="d2"></div>
+        <div class="d3"></div>
+    </section>
+
+
+</body>
+</html>
+
+<script>
+    // let items = document.querySelectorAll('li');
+    // let dives = document.querySelectorAll('section > div');
+    //
+    // items.forEach((item, index) => {
+    //     item.addEventListener('click', () => {
+    //         items.forEach(li => li.classList.remove('active'));
+    //         dives.forEach(div => div.style.display = 'none');
+    //         item.classList.add('active');
+    //         dives[index].style.display = 'block';
+    //     });
+    // });
+
+
+    // let items = document.querySelectorAll('li');
+    // if(items.length > 0){
+    //     items.forEach(item => {
+    //         item.addEventListener(`click`, () => {
+    //             items.forEach(li => li.classList.remove(`active`))
+    //             dives.forEach(div => div.style.display = `none`)
+    //             item.classList.add(`active`)
+    //             dives[item.dataset.index].style.display = `block`
+    //         })
+    //     })
+    // }
+
+
+
+
+    let items = document.querySelectorAll('li');
+    let dives = document.querySelectorAll('div');
+
+    for(let i = 0; i < items.length; i++){
+        items[i].addEventListener('click', function(){
+            items.forEach(li => li.classList.remove('active'));
+            dives.forEach(div => div.style.display = 'none');
+            this.classList.add('active');
+            dives[i].style.display = 'block';
+        })
+    }
+
+</script>
+
+
+
+
+
+

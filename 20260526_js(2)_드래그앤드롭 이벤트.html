@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>드래그앤드롭 이벤트</title>
+</head>
+<style>
+    section, img{
+        display: inline-block;
+    }
+    img{
+        width: 200px;
+        height: 200px;
+        background-color: #c1c1c1;
+        display: inline-block;
+    }
+    .s1{
+        width: 200px;
+        height: 200px;
+        background-color: #a99ef3;
+    }
+    .s2{
+        width: 200px;
+        height: 200px;
+        background-color: #f39e9e;
+    }
+    .s3{
+        width: 200px;
+        height: 200px;
+        background-color: #f5ff9f;
+    }
+    .s4{
+        width: 200px;
+        height: 200px;
+        background-color: #b9ffc2;
+    }
+</style>
+
+<body>
+    <img src="https://images.unsplash.com/photo-1779202568356-a8239fd66d86?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    <section class="s1"></section>
+    <section class="s2"></section>
+    <section class="s3"></section>
+    <section class="s4"></section>
+</body>
+</html>
+
+<script>
+    // ////////// 디스트럭처링 문법(3줄 -> 1줄)
+    // let arr = [100, 200, 300];
+    // let a1 = arr[0];
+    // let a2 = arr[1];
+    // let [a1, a2, a3] = [100, 200, 300];
+
+
+    let img = document.querySelector(`img`);
+    let sections = document.querySelectorAll(`section`);
+    let sec1 = sections[0];
+    let sec2 = sections[1];
+    let s1 = sections[0];
+    let s2 = sections[1];
+    let s3 = sections[2];
+    let s4 = sections[3];
+
+    // let [sec1, sec2] = [document.querySelectorAll(`section`)]
+
+    img.ondragstart = () => {
+        console.log(`dragstart`)
+    }
+    img.ondragend = () => {
+        console.log(`dragend`)
+    }
+    // img.ondrag = () => {
+    //     console.log(`drag`)
+    // }
+    // 드래그하고 있는 동안 계속 실행되므로 거의 사용하지 않는다.
+    sec1.ondragstart = () => {
+        console.log(`sec1 - dragstart`)
+    }
+    //드래그적인 요소가 아니면 기본적으로는 상호작용이 되지 않는다.
+    img.draggable = true;
+    sec1.draggable = true;
+    sec2.draggable = true;
+    // draggable을 true로 바꿔주면 드래그가 가능한 요소로 바뀌게 된다.
+    sec1.ondragenter = () => {
+        console.log(`sec1 - dragenter`)
+    }
+    // drag 도중에 sec1에 들어왔다는 의미.
+    sec1.ondragleave = () => {
+        console.log(`sec1 - dragleave`)
+    }
+    // drag 도중에 sec1에서 나갔다는 의미.
+    sec1.ondragover = () => {
+        console.log(`sec1 - dragover`)
+    }
+    // drag한 채로 sec1위에 있으면 실행된다.
+
+
+    s1.draggable = true;
+    s2.draggable = true;
+    s3.draggable = true;
+    s4.draggable = true;
+
+    // s1.ondragenter = () => {
+    //     s1.style.backgroundColor = `red`;
+    // }
+    let origin = [`#a99ef3`, `#f39e9e`, `#f5ff9f`, `#b9ffc2`];
+    //
+    // s1.ondragover = () => {
+    //     s1.style.backgroundColor = `yellow`;
+    // }
+    // s1.ondragleave = () => {
+    //     s1.style.backgroundColor = origin[0];
+    // }
+    // s2.ondragover = () => {
+    //     s2.style.backgroundColor = `yellow`;
+    // }
+    // s2.ondragleave = () => {
+    //     s2.style.backgroundColor = origin[1];
+    // }
+    // s3.ondragover = () => {
+    //     s3.style.backgroundColor = `yellow`;
+    // }
+    // s3.ondragleave = () => {
+    //     s3.style.backgroundColor = origin[2];
+    // }
+    // s4.ondragover = () => {
+    //     s4.style.backgroundColor = `yellow`;
+    // }
+    // s4.ondragleave = () => {
+    //     s4.style.backgroundColor = origin[3];
+    // }
+
+
+    // 상수에 담아두는 방식 -> 제미나이 발췌
+    //
+    // let sections_2 = [s1, s2, s3, s4];
+    // //
+    // sections_2.forEach(s => {
+    //     // 1. 이 시점의 원래 배경색을 상수에 담아둡니다.
+    //     // (getComputedStyle을 쓰면 CSS 파일에 정의된 색상도 정확히 가져옵니다)
+    //     let originalColor = window.getComputedStyle(s).backgroundColor;
+    //
+    //     s.ondragover = () => {
+    //         s.style.backgroundColor = `#ffffff`;
+    //     };
+    //
+    //     s.ondragleave = () => {
+    //         // 2. 위에서 기억해둔 원래 색상으로 복구
+    //         s.style.backgroundColor = originalColor;
+    //     };
+    // });
+
+
+    // for문으로 하는 방식
+
+    let dragElem = null;
+    // let sections = document.querySelectorAll(`section`);
+    let origin = [`#a99ef3`, `#f39e9e`, `#f5ff9f`, `#b9ffc2`];
+    for(let i = 0; i < sections.length; i++) {
+        let s = sections[i];
+
+        s.draggable = true;
+        s.ondragstart = () => {
+            dragElem = s;
+        }
+        s.ondragenter = () => {
+            s.style.backgroundColor = getComputedStyle(dragElem).backgroundColor;
+        s.ondragleave = () => {
+            s.style.backgroundColor = origin[i];}
+        }
+    }
+
+    // 처음부터 끝까지 순회하려면 -> for(let s of sections){}로 작성하면 편리하다.
+
+</script>

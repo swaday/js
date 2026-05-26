@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 위치</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: slateblue;
+    }
+</style>
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div></div>
+</body>
+</html>
+
+
+<script>
+    document.querySelector(`div`). onclick = (event) => {
+        // console.log(`width: `, event.width);
+        // console.log(`height: `, event.height);
+        console.log(`clientX: `, event.clientX); // 좌측 상단의 좌표 (0, 0)
+        console.log(`clientY: `, event.clientY); // client : 현재 보이는 상황에서의 클릭한 위치
+        console.log(`offsetX: `, event.offsetX);
+        console.log(`offsetY: `, event.offsetY); // offset : 요소 안에서의 상대적 위치
+        console.log(`pageX: `, event.pageX);
+        console.log(`pageY: `, event.pageY); // page : 브라우저 페이지 내에서의 위치
+        console.log(`screenX: `, event.screenX);
+        console.log(`screenY: `, event.screenY); // screen : 컴퓨터 스크린 내에서의 위치
+    }
+</script>

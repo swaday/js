@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* utf-8: 다국어+이모티콘 지원 */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    /*background-color: #87ceeb;*/
+    animation: sky linear 20s infinite;
+}
+
+h1{
+    width: 1000px;
+    /*background-color: #f5ff9f;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 150%);
+    text-align: center;
+    font-size: 100px;
+    color: #bafd00;
+    animation-name: day;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+section{
+    width: 1000px;
+    height: 600px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*background-color: #a6ffc4;*/
+}
+
+section .sky{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*background-color: #263036;*/
+}
+
+section .sky img{
+    position: inline;
+}
+
+section .sky .sun{
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: center 500px;
+    animation: sun linear 20s infinite;
+}
+
+section .sky .cloud1{
+    position: absolute;
+    top: 200px;
+    left: 20%;
+    animation: flow linear 10s infinite;
+}
+
+section .sky .cloud2{
+    position: absolute;
+    top: 100px;
+    left: 80%;
+    animation: flow linear 6s infinite;
+}
+
+section .town .night{
+    position: absolute;
+    top: 55%;
+    left: 4%;
+}
+section .town .day{
+    position: absolute;
+    top: 55%;
+    left: 4%;
+    animation: day 20s infinite;
+}
+section .town .circle{
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    animation: rotation 20s infinite;
+}
+
+section .people .man{
+    position: absolute;
+    top: 90%;
+    left: 20%;
+    animation: flow linear 7s infinite;
+}
+
+section .people .family{
+    position: absolute;
+    top: 85%;
+    left: 80%;
+    animation: flow linear 7s infinite;
+}
+
+@keyframes day{
+    0%{ opacity: 0; }
+    25%{ opacity: 1;}
+    50%{ opacity: 1; }
+    75%{ opacity: 0; }
+    100%{ opacity: 0; }
+}
+
+@keyframes flow{
+    0%{ left: 0; opacity: 0; }
+    10%{ opacity: 1; }
+    80%{ opacity: 1; }
+    100%{ left: 90%; opacity: 0; }
+}
+
+@keyframes sun{
+    0%{ opacity: 0; transform: rotate(-90deg); }
+    25%{ opacity: 1; transform: rotate(-30deg); }
+    50%{ opacity: 1; transform: rotate(30deg); }
+    75%{ opacity: 0; transform: rotate(90deg); }
+    100%{ opacity: 0; transform: rotate(-90deg); }
+}
+
+@keyframes rotation{
+    0%{ transform: rotate(0deg); }
+    100%{ transform: rotate(360deg); }
+}
+
+@keyframes sky{
+    0%{ background-color: #7bb3d0; }
+    50%{ background-color: #afe3ff; }
+    100%{ background-color: #20252c;
+}
+

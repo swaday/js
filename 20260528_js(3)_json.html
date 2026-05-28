@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  const obj = {
+    a: 100,
+    "b": 200,
+    "c": [1, 2, 3],
+    "d": {
+      "test": 1,
+      "test2": 2,
+      "test3": 3
+    },
+    "e": "ㅋㅋㅋ"
+  }
+
+  console.log(obj.a);
+  console.log(obj["a"]);
+
+
+  // javascript 객체를 JSON 문자열로 변환
+  const message = JSON.stringify(obj);
+  console.log(message);
+
+  // JSON 문자열을 javascript 객체로 변환
+  const parsedObj = JSON.parse(message);
+
+  console.log(parsedObj.a);
+  console.log(parsedObj["a"]);
+
+
+
+</script>

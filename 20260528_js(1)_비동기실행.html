@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>비동기실행_인터벌</title>
+</head>
+<style>
+
+
+</style>
+<body>
+    <h1>TIMER</h1>
+    <div>
+        <button type="button">(Re)Start</button>
+        <button type="button">Pause</button>
+        <button type="button">Reset</button>
+    </div>
+    <div>
+        <b class="hour">00</b>
+        <b>:</b>
+        <b class="min">00</b>
+        <b>:</b>
+        <b class="sec">00</b>
+    </div>
+</body>
+</html>
+
+<script>
+
+    // **** 비동기적 실행 : 병렬적으로 실행되는 것
+
+    // setTimeout: 일정한 ms 이후 함수가 실행
+    // setTimeout(함수, ms)
+    //
+    // function timeout(){
+    //     console.log(`setTimeout 실행`);
+    // }
+    // setTimeout(timeout, 1000); // 1초 뒤에 timeout 실행.
+    //
+    // // setInterval: 일정한 ms 간격으로 함수가 실행
+    // // setInterval(함수, ms)
+    // function interval(){
+    //     console.log(`setInterval 실행`);
+    // }
+    // setInterval(interval, 1000); // 1초 간격으로 interval 실행
+    // setInterval = geter 성격이 있다. ID를 부여하고 실행할 수 있다. intervalID 캔슬 => clearInterval(intervalID)
+    // 이는 예약작업에 유리함으로써 clearInterval(intervalID)를 통해 예약작업을 취소할 수 있다.
+
+
+    // 시계 만들기
+    const [startBtn, pauseBtn, resetBtn] = document.querySelectorAll('button');
+    const hour = document.querySelector(`.hour`);
+    const min = document.querySelector(`.min`);
+    const sec = document.querySelector(`.sec`);
+    let timerID = null; // 실행되는 timer의 intervalID
+
+
+    // function timer(){
+    //     let nowsec = +sec.textContent;
+    //     sec.textContent = +sec.textContent + 1;
+    //     if(nowsec === 60){
+    //         sec.textContent = 0;
+    //         let nowmin = +min.textContent;
+    //         min.textContent = +min.textContent + 1;
+    //         if(nowmin === 60){
+    //             min.textContent = 0;
+    //             let nowhour = +hour.textContent;
+    //             hour.textContent = +hour.textContent + 1;
+    //         }
+    //     }
+    // }
+
+    function timer(){
+        let nowSec = +sec.textContent + 1; // 현재 초를 가져와서 1초 올린다
+        let nowMin = +min.textContent; // 현재 분을 가져온다
+        let nowHour = +hour.textContent; // 현재 시를 가져온다
+        if(nowSec === 60){ // 60초가 되버렸네?
+            nowSec = 0; // 0초로 변경
+            nowMin++; // 1분 올린다
+        }
+        if(nowMin === 60){ // 60분이 되버렸네?
+            nowMin = 0; // 0분로 변경
+            nowHour++; // 1시간 올린다
+        }
+        // 현재 시간에 맞게 글자를 다시 넣어준다.
+        // '' + nowSec
+        sec.textContent = nowSec.toString().padStart(2, '0');
+        min.textContent = nowMin.toString().padStart(2, '0');
+        hour.textContent = nowHour.toString().padStart(2, '0');
+    }
+
+
+    startBtn.onclick = () => {
+        // timerID = setInterval(timer, 100); // setinterval은 누를때마다 반복실행 => 요소에 disable을 주거나 if문을 사용
+        // startBtn.disabled = true;
+        // pauseBtn.disabled = false;
+        // resetBtn.disabled = false;
+        if(timerID === null){
+            timerID = setInterval(timer, 100);
+        }
+    }
+
+    pauseBtn.onclick = () => {
+        clearInterval(timerID);
+        timerID = null;
+    }
+
+    resetBtn.onclick = () => {
+        clearInterval(timerID);
+        timerID = null;
+        sec.textContent = '00';
+        min.textContent = '00';
+        hour.textContent = '00';
+    }
+
+</script>

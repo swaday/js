@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>캔버스</title>
+</head>
+<body>
+
+<canvas id="canvas" width="400" height="400"></canvas>
+
+</body>
+</html>
+<script>
+
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = 400;
+    canvas.height = 400;
+    ctx.fillStyle = '#f5ff9f';
+    ctx.fillRect(0, 0, 100, 100);  // x, y, width, height
+
+</script>
